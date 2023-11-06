@@ -5,6 +5,8 @@ import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
 
+import summary
+
 
 page = 'https://www.york.ac.uk/teaching/cws/wws/webpage1'
 
@@ -22,7 +24,7 @@ for p in paragraphs:
     article_text += p.text
 
 
-import summary
 
+#create summary
 summary_obj = summary.Summarizer(article_text)
 summary_obj.print_summary()
