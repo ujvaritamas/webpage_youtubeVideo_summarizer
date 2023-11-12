@@ -15,6 +15,8 @@ debug:
 
 docker run -d --name test -v $(pwd)/summarize_yt_video_or_webpage:/myapp wp_yt_summary_img
 
+docker run -d --name test -v $(pwd)/summarize_yt_video_or_webpage:/myapp -p 8080:80 wp_yt_summary_img
+
 docker exec -it <containerid> /bin/bash
 
 cleanup:

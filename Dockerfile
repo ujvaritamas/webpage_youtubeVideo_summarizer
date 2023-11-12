@@ -13,6 +13,10 @@ RUN pip install youtube-transcript-api
 RUN pip install nltk
 RUN pip install bs4
 
+#install node
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+
 COPY . .
 
 CMD ["bash", "-c", "while true; do sleep 3600; done"]
