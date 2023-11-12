@@ -58,6 +58,7 @@ class Summarizer:
 
     def create_summary(self) ->str:
         sentence_list = nltk.sent_tokenize(self.text)
+
         self.__rank_words()
         self.__rank_sentencies(sentence_list)
 

@@ -14,16 +14,17 @@ page = 'https://www.york.ac.uk/teaching/cws/wws/webpage1'
 
 #screp pragraphs from the page
 request_site = url.Request(page, headers={"User-Agent": "Mozilla/5.0"})
-article = url.urlopen(request_site).read()
-parsed_article = bs.BeautifulSoup(article, 'html.parser')
-paragraphs = parsed_article.find_all('p')
-
+article = url.urlopen(request_site).read().decode('utf8')
+soup = bs.BeautifulSoup(article, 'html.parser')
+paragraphs = soup.find_all('p')
 article_text = ""
-
 for p in paragraphs:
     article_text += p.text
 
-
+print("Original text: \n")
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n")
+print(article_text)
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n")
 
 #create summary
 summary_obj = summary.Summarizer(article_text)
